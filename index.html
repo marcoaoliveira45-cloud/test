@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HTML5: um guia editorial completo sobre estrutura, semântica, APIs, acessibilidade e desenvolvimento web moderno.">
+  <title>HTML5 — O Guia Definitivo</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient-spotlight" aria-hidden="true"></div>
+  <div class="page-grain" aria-hidden="true"></div>
+  <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Voltar ao início" hidden>↑</button>
+  <header class="site-header" id="top">
+    <a class="brand" href="#inicio" aria-label="Ir para o início">
+      <span class="brand-mark" aria-hidden="true">5</span>
+      <span><small>WEB FUNDAMENTOS</small><strong>HTML5</strong></span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+      <a href="#fundamentos">Fundamentos</a>
+      <a href="#referencia">Referência</a>
+      <a href="#pratica">Na prática</a>
+      <a href="#quiz">Quiz</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema claro">
+        <span class="theme-icon" aria-hidden="true"></span>
+      </button>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <canvas id="heroParticles" class="hero-particles" aria-hidden="true"></canvas>
+      <div class="hero-orb orb-one" aria-hidden="true"></div>
+      <div class="hero-orb orb-two" aria-hidden="true"></div>
+      <div class="floating-codes" aria-hidden="true">
+        <span>&lt;p&gt;</span><span>&lt;img&gt;</span><span>&lt;nav&gt;</span><span>&lt;video&gt;</span><span>&lt;body&gt;</span>
+      </div>
+      <div class="hero-content reveal">
+        <p class="eyebrow"><span></span> Linguagem viva da Web</p>
+        <h1>HTML5:<br><em>A linguagem que</em><br>estrutura a Web.</h1>
+        <p class="hero-lede">Aprenda como o HTML dá forma às páginas da internet. Vamos descobrir suas partes, suas regras e tudo o que ele pode criar de um jeito simples e divertido.</p>
+        <div class="hero-actions">
+          <a class="button button-primary magnetic" href="#fundamentos">Começar a explorar <span>↘</span></a>
+          <a class="button button-secondary" href="#estrutura"><span class="code-icon">&lt;/&gt;</span> Ver exemplos</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal" aria-label="Composição visual do símbolo HTML5">
+        <div class="code-rail rail-one" aria-hidden="true">&lt;article&gt;</div>
+        <div class="code-rail rail-two" aria-hidden="true">&lt;/main&gt;</div>
+        <div class="html-shield" id="htmlShield">
+          <div class="shield-inner">
+            <span>HTML</span>
+            <strong>5</strong>
+          </div>
+        </div>
+        <div class="orbit orbit-one" aria-hidden="true"><span>&lt;header&gt;</span></div>
+        <div class="orbit orbit-two" aria-hidden="true"><span>&lt;video&gt;</span></div>
+        <div class="orbit orbit-three" aria-hidden="true"><span>&lt;form&gt;</span></div>
+      </div>
+      <a class="scroll-cue" href="#fundamentos"><span></span> Descubra abaixo</a>
+    </section>
+
+    <section class="section fundamentals" id="fundamentos">
+      <div class="section-heading reveal">
+        <p class="section-index">01 / FUNDAMENTOS</p>
+        <h2>O que é <span>HTML5?</span></h2>
+      </div>
+      <div class="intro-grid">
+        <div class="intro-copy reveal">
+          <p class="lead">HTML significa <strong>HyperText Markup Language</strong>, ou Linguagem de Marcação de Hipertexto.</p>
+          <p>O HTML é como o esqueleto de uma página: ele organiza títulos, textos, imagens, vídeos e botões.</p>
+          <p>HTML5 é a versão atual. Ela traz recursos novos para deixar as páginas mais completas. Depois, o CSS cuida das cores e o JavaScript faz as coisas se mexerem.</p>
+        </div>
+        <div class="stack-visual reveal" aria-label="HTML estrutura, CSS aparência e JavaScript comportamento">
+          <div class="stack-card stack-html"><span>01</span><strong>HTML</strong><small>Estrutura</small></div>
+          <div class="stack-card stack-css"><span>02</span><strong>CSS</strong><small>Aparência</small></div>
+          <div class="stack-card stack-js"><span>03</span><strong>JS</strong><small>Comportamento</small></div>
+        </div>
+      </div>
+      <div class="concept-grid">
+        <article class="concept-card topic-card reveal" data-topic="marcacao" role="button" tabindex="0"><span class="topic-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="m11 9-7 7 7 7M21 9l7 7-7 7M19 6l-6 20"/></svg></span><h3>Marcação <small>+</small></h3><p>O HTML usa etiquetas para dizer o que cada parte da página representa.</p></article>
+        <article class="concept-card topic-card reveal" data-topic="links" role="button" tabindex="0"><span class="topic-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="m13 19 6-6M11 22l-2 2a5 5 0 0 1-7-7l6-6a5 5 0 0 1 7 0m3-3 2-2a5 5 0 0 1 7 7l-6 6a5 5 0 0 1-7 0"/></svg></span><h3>Links <small>+</small></h3><p>Links levam você para outra página, outra parte do site ou um endereço externo.</p></article>
+        <article class="concept-card topic-card reveal" data-topic="frontend" role="button" tabindex="0"><span class="topic-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="m16 3 12 6-12 6L4 9l12-6ZM4 16l12 6 12-6M4 23l12 6 12-6"/></svg></span><h3>Front-end <small>+</small></h3><p>HTML cria a estrutura, CSS decora e JavaScript faz funcionar e interagir.</p></article>
+      </div>
+    </section>
+
+    <section class="section history" id="historia">
+      <div class="section-heading reveal">
+        <p class="section-index">02 / HISTÓRIA</p>
+        <h2>Uma evolução <span>contínua.</span></h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-line" aria-hidden="true"><span></span></div>
+        <article class="timeline-item reveal"><time>1991</time><div><span>HTML 1.0</span><h3>O começo da Web</h3><p>As primeiras páginas podiam mostrar textos e ligar um conteúdo a outro.</p></div></article>
+        <article class="timeline-item reveal"><time>1995</time><div><span>HTML 2.0</span><h3>As regras ficaram públicas</h3><p>Surgiram elementos mais organizados e os primeiros formulários.</p></div></article>
+        <article class="timeline-item reveal"><time>1997</time><div><span>HTML 3.2</span><h3>Tabelas e scripts</h3><p>A linguagem ganhou recursos para organizar dados e adicionar pequenas ações.</p></div></article>
+        <article class="timeline-item reveal"><time>1999</time><div><span>HTML 4.01</span><h3>Estrutura e estilo separados</h3><p>O HTML passou a cuidar da estrutura e o CSS passou a cuidar da aparência.</p></div></article>
+        <article class="timeline-item reveal"><time>2000</time><div><span>XHTML</span><h3>Uma versão mais rígida</h3><p>Essa versão exigia código muito organizado, mas acabou sendo menos prática.</p></div></article>
+        <article class="timeline-item featured reveal"><time>2014+</time><div><span>HTML5</span><h3>Uma plataforma completa</h3><p>Agora o HTML ajuda em vídeos, jogos, gráficos, formulários e muito mais.</p></div></article>
+      </div>
+    </section>
+
+    <section class="section structure" id="estrutura">
+      <div class="section-heading reveal">
+        <p class="section-index">03 / ANATOMIA</p>
+        <h2>Estrutura de um<br><span>documento HTML5.</span></h2>
+      </div>
+      <div class="code-layout">
+        <div class="code-window reveal">
+          <div class="window-bar"><div><i></i><i></i><i></i></div><span>index.html</span><button class="copy-button" data-copy="documentCode" type="button">Copiar</button></div>
+          <pre id="documentCode"><code><span class="tok-punc">&lt;!</span><span class="tok-key">DOCTYPE</span> <span class="tok-value">html</span><span class="tok-punc">&gt;</span>
+<span class="tok-punc">&lt;</span><span class="tok-tag">html</span> <span class="tok-attr">lang</span>=<span class="tok-string">"pt-BR"</span><span class="tok-punc">&gt;</span>
+  <span class="tok-punc">&lt;</span><span class="tok-tag">head</span><span class="tok-punc">&gt;</span>
+    <span class="tok-punc">&lt;</span><span class="tok-tag">meta</span> <span class="tok-attr">charset</span>=<span class="tok-string">"UTF-8"</span><span class="tok-punc">&gt;</span>
+    <span class="tok-punc">&lt;</span><span class="tok-tag">meta</span> <span class="tok-attr">name</span>=<span class="tok-string">"viewport"</span> <span class="tok-attr">content</span>=<span class="tok-string">"width=device-width, initial-scale=1.0"</span><span class="tok-punc">&gt;</span>
+    <span class="tok-punc">&lt;</span><span class="tok-tag">title</span><span class="tok-punc">&gt;</span>Minha primeira página<span class="tok-punc">&lt;/</span><span class="tok-tag">title</span><span class="tok-punc">&gt;</span>
+  <span class="tok-punc">&lt;/</span><span class="tok-tag">head</span><span class="tok-punc">&gt;</span>
+  <span class="tok-punc">&lt;</span><span class="tok-tag">body</span><span class="tok-punc">&gt;</span>
+    <span class="tok-punc">&lt;</span><span class="tok-tag">h1</span><span class="tok-punc">&gt;</span>Olá, mundo!<span class="tok-punc">&lt;/</span><span class="tok-tag">h1</span><span class="tok-punc">&gt;</span>
+    <span class="tok-punc">&lt;</span><span class="tok-tag">p</span><span class="tok-punc">&gt;</span>Minha primeira página HTML5.<span class="tok-punc">&lt;/</span><span class="tok-tag">p</span><span class="tok-punc">&gt;</span>
+  <span class="tok-punc">&lt;/</span><span class="tok-tag">body</span><span class="tok-punc">&gt;</span>
+<span class="tok-punc">&lt;/</span><span class="tok-tag">html</span><span class="tok-punc">&gt;</span></code></pre>
+        </div>
+        <div class="anatomy-list reveal">
+          <article class="topic-card" data-topic="doctype" role="button" tabindex="0"><span>01</span><div><h3>&lt;!DOCTYPE html&gt;</h3><p>Avisa ao navegador que esta página usa HTML moderno.</p></div></article>
+          <article class="topic-card" data-topic="html" role="button" tabindex="0"><span>02</span><div><h3>&lt;html lang&gt;</h3><p>Guarda toda a página e informa em qual idioma ela está.</p></div></article>
+          <article class="topic-card" data-topic="head" role="button" tabindex="0"><span>03</span><div><h3>&lt;head&gt;</h3><p>Contém informações da página, como título, estilos e scripts.</p></div></article>
+          <article class="topic-card" data-topic="viewport" role="button" tabindex="0"><span>04</span><div><h3>&lt;meta viewport&gt;</h3><p>Ajuda o site a se ajustar ao tamanho da tela do aparelho.</p></div></article>
+          <article class="topic-card" data-topic="body" role="button" tabindex="0"><span>05</span><div><h3>&lt;body&gt;</h3><p>Contém tudo o que aparece na tela: textos, imagens e botões.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reference" id="referencia">
+      <div class="section-heading compact reveal">
+        <p class="section-index">04 / REFERÊNCIA</p>
+        <h2>Tags, em <span>contexto.</span></h2>
+      </div>
+      <div class="tag-reference">
+        <aside class="tag-sidebar reveal" aria-label="Categorias de tags">
+          <label for="tagSearch">Buscar elemento</label>
+          <input id="tagSearch" type="search" placeholder="Ex.: article, form, video">
+          <div class="tag-categories" id="tagCategories"></div>
+        </aside>
+        <div class="tag-results reveal" id="tagResults" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section semantic" id="semantica">
+      <div class="section-heading reveal">
+        <p class="section-index">05 / SEMÂNTICA</p>
+        <h2>Estrutura com<br><span>significado.</span></h2>
+      </div>
+      <div class="semantic-comparison">
+        <article class="compare-card topic-card reveal" data-topic="semantica" role="button" tabindex="0">
+          <div class="compare-label"><span>ANTES</span><small>Sem semântica</small></div>
+          <div class="wireframe generic"><div>&lt;div&gt; cabeçalho</div><div>&lt;div&gt; navegação</div><div class="generic-main"><b>&lt;div&gt; conteúdo</b><b>&lt;div&gt; lateral</b></div><div>&lt;div&gt; rodapé</div></div>
+        </article>
+        <article class="compare-card topic-card reveal" data-topic="semantica" role="button" tabindex="0">
+          <div class="compare-label"><span>AGORA</span><small>HTML semântico</small></div>
+          <div class="wireframe semantic-map"><header>header</header><nav>nav</nav><div class="semantic-main"><main>main</main><aside>aside</aside></div><footer>footer</footer></div>
+        </article>
+      </div>
+      <div class="benefit-row">
+        <article class="topic-card reveal" data-topic="acessibilidade" role="button" tabindex="0"><span>01</span><h3>Acessibilidade <small>+</small></h3><p>Pessoas que usam leitores de tela entendem melhor o conteúdo.</p></article>
+        <article class="topic-card reveal" data-topic="seo" role="button" tabindex="0"><span>02</span><h3>Encontrar no Google <small>+</small></h3><p>O Google entende melhor o assunto e a ordem do texto.</p></article>
+        <article class="topic-card reveal" data-topic="organizacao" role="button" tabindex="0"><span>03</span><h3>Organização <small>+</small></h3><p>O código fica fácil de ler e mais simples de mudar depois.</p></article>
+      </div>
+    </section>
+
+    <section class="section attributes" id="atributos">
+      <div class="section-heading reveal"><p class="section-index">06 / ATRIBUTOS</p><h2>Informação nos <span>elementos.</span></h2></div>
+      <div class="attributes-layout">
+        <div class="attribute-example reveal">
+          <div class="window-bar"><div><i></i><i></i><i></i></div><span>atributos.html</span></div>
+          <pre><code><span class="tok-punc">&lt;</span><span class="tok-tag">button</span>
+  <span class="tok-attr">id</span>=<span class="tok-string">"menu-toggle"</span>
+  <span class="tok-attr">class</span>=<span class="tok-string">"button"</span>
+  <span class="tok-attr">type</span>=<span class="tok-string">"button"</span>
+  <span class="tok-attr">aria-expanded</span>=<span class="tok-string">"false"</span>
+  <span class="tok-attr">title</span>=<span class="tok-string">"Abrir menu"</span>
+<span class="tok-punc">&gt;</span>Menu<span class="tok-punc">&lt;/</span><span class="tok-tag">button</span><span class="tok-punc">&gt;</span></code></pre>
+        </div>
+        <div class="attribute-list reveal">
+          <button type="button" data-topic="marcacao" data-tip="Dá um nome único para um elemento da página."><code>id</code><span>Nome único</span></button>
+          <button type="button" data-tip="Coloca vários elementos em um mesmo grupo."><code>class</code><span>Grupo de estilo</span></button>
+          <button type="button" data-tip="Ajuda leitores de tela a entender estados e funções."><code>aria-*</code><span>Acessibilidade</span></button>
+          <button type="button" data-tip="Guarda uma informação extra dentro do elemento."><code>data-*</code><span>Dados extras</span></button>
+          <button type="button" data-tip="Informa em qual idioma está escrito o elemento."><code>lang</code><span>Idioma</span></button>
+          <button type="button" data-tip="Controla quais elementos podem receber foco pelo teclado."><code>tabindex</code><span>Teclado</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section forms" id="formularios">
+      <div class="section-heading reveal"><p class="section-index">07 / FORMULÁRIOS</p><h2>Entrada validada,<br><span>nativa do navegador.</span></h2></div>
+      <div class="form-playground reveal">
+        <form id="demoForm">
+          <div class="field"><label for="name">Nome completo</label><input id="name" name="name" type="text" placeholder="Ada Lovelace" required minlength="3"></div>
+          <div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" placeholder="ada@example.com" required></div>
+          <div class="field field-half"><label for="birth">Data de nascimento</label><input id="birth" name="birth" type="date"></div>
+          <div class="field field-half"><label for="level">Nível</label><select id="level" name="level"><option>Iniciante</option><option>Intermediário</option><option>Avançado</option></select></div>
+          <div class="field field-full"><label for="progress">Experiência com HTML <output id="rangeOutput">50%</output></label><input id="progress" name="progress" type="range" min="0" max="100" value="50"></div>
+          <button class="button button-primary" type="submit">Enviar formulário <span>→</span></button>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+        <aside>
+          <p>Validação em HTML</p><code>&lt;input type="email" required&gt;</code>
+          <ul><li><b>required</b> Campo obrigatório</li><li><b>pattern</b> Expressão personalizada</li><li><b>minlength</b> Tamanho mínimo</li><li><b>autocomplete</b> Preenchimento assistido</li></ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section multimedia" id="multimidia">
+      <div class="section-heading reveal"><p class="section-index">08 / MULTIMÍDIA</p><h2>Conteúdo, sem<br><span>plugins externos.</span></h2></div>
+      <div class="media-layout">
+        <article class="media-demo reveal">
+          <div class="media-top"><span>VÍDEO / 0:12</span><button type="button" id="mediaPlay" aria-label="Reproduzir animação">▶</button></div>
+          <div class="video-demo" id="videoDemo"><div class="video-frame"><span>&lt;video&gt;</span><i></i></div></div>
+        </article>
+        <div class="media-notes topic-card reveal" data-topic="multimidia" role="button" tabindex="0">
+          <article><code>&lt;video&gt;</code><p>Vídeo nativo com controles, poster e fontes alternativas.</p></article>
+          <article><code>&lt;audio&gt;</code><p>Som em controle nativo, sem depender de plugins.</p></article>
+          <article><code>&lt;track&gt;</code><p>Legendas e descrições sincronizadas por faixa WebVTT.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section webapi" id="api">
+      <div class="section-heading reveal"><p class="section-index">09 / PLATAFORMA WEB</p><h2>HTML encontra<br><span>JavaScript.</span></h2></div>
+      <p class="api-lede reveal">Canvas, armazenamento e localização não são etiquetas HTML. São ferramentas que o navegador oferece para o JavaScript usar.</p>
+      <div class="api-grid" id="apiGrid">
+        <article class="topic-card reveal" data-topic="canvas" role="button" tabindex="0"><span>01</span><h3>Canvas</h3><p>Desenha linhas e figuras com JavaScript.</p><code>canvas.getContext()</code></article>
+        <article class="reveal"><span>02</span><h3>Armazenamento</h3><p>Guarda informações no navegador.</p><code>localStorage.setItem()</code></article>
+        <article class="reveal"><span>03</span><h3>Fetch</h3><p>Busca dados de outro endereço da internet.</p><code>fetch(url)</code></article>
+        <article class="reveal"><span>04</span><h3>Web Workers</h3><p>Faz trabalhos pesados sem travar a página.</p><code>new Worker(url)</code></article>
+        <article class="reveal"><span>05</span><h3>Banco no navegador</h3><p>Guarda muitos dados organizados no aparelho.</p><code>indexedDB.open()</code></article>
+        <article class="reveal"><span>06</span><h3>Componentes</h3><p>Cria peças novas que podem ser usadas várias vezes.</p><code>customElements.define()</code></article>
+      </div>
+    </section>
+
+    <section class="section graphics" id="graficos">
+      <div class="section-heading reveal"><p class="section-index">10 / GRÁFICOS</p><h2>Canvas ou <span>SVG?</span></h2></div>
+      <div class="graphics-layout">
+        <article class="canvas-card reveal"><div class="card-bar"><span>CANVAS / PIXELS</span><div class="chart-actions"><button id="toggleCanvas" type="button" aria-pressed="false">Pausar</button><button id="drawCanvas" type="button">Redesenhar</button></div></div><canvas id="demoCanvas" width="600" height="280" aria-label="Animação de gráfico em Canvas"></canvas></article>
+        <article class="svg-card reveal"><div class="card-bar"><span>SVG / VETORES</span><small>Arraste o ponto ou use as setas</small></div><svg id="demoSvg" viewBox="0 0 600 280" role="group" aria-label="Gráfico interativo. Arraste o ponto para explorar" tabindex="0"><defs><linearGradient id="svgGradient"><stop offset="0" stop-color="#ed8b70"/><stop offset="1" stop-color="#b7a4d8"/></linearGradient></defs><path class="svg-grid" d="M20 70H580M20 140H580M20 210H580M100 20V260M200 20V260M300 20V260M400 20V260M500 20V260"/><path class="svg-curve" d="M40 220 C120 220 130 80 220 125 S350 215 430 95 S520 50 560 80"/><circle id="svgCursor" cx="300" cy="140" r="10" role="slider" aria-label="Ponto interativo do gráfico" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0"/></svg></article>
+      </div>
+    </section>
+
+    <section class="section accessibility" id="acessibilidade">
+      <div class="section-heading reveal"><p class="section-index">11 / ACESSIBILIDADE</p><h2>Construído para <span>todos.</span></h2></div>
+      <div class="a11y-layout">
+        <article class="a11y-card bad reveal"><div><span>EVITE</span><h3>Imagem sem alternativa</h3></div><div class="bad-preview"><div class="broken-image">[imagem]</div><button type="button" tabindex="-1">Clique aqui</button></div></article>
+        <article class="a11y-card good reveal"><div><span>RECOMENDADO</span><h3>Imagem com contexto</h3></div><div class="good-preview"><div class="good-icon" role="img" aria-label="Símbolo de código HTML">‹/›</div><button type="button" aria-label="Abrir documentação sobre HTML">Abrir documentação <b>→</b></button></div></article>
+      </div>
+      <div class="a11y-points reveal"><p><i>✓</i> Texto alternativo útil</p><p><i>✓</i> Labels associados</p><p><i>✓</i> Foco visível</p><p><i>✓</i> Contraste adequado</p></div>
+    </section>
+
+    <section class="section seo" id="seo">
+      <div class="section-heading reveal"><p class="section-index">12 / ENCONTRO NA WEB</p><h2>HTML que também <span>é encontrado.</span></h2></div>
+      <div class="seo-layout">
+        <div class="seo-code reveal"><div class="window-bar"><div><i></i><i></i><i></i></div><span>head otimizado</span></div><pre><code><span class="tok-punc">&lt;</span><span class="tok-tag">title</span><span class="tok-punc">&gt;</span>HTML5 — Guia Definitivo<span class="tok-punc">&lt;/</span><span class="tok-tag">title</span><span class="tok-punc">&gt;</span>
+<span class="tok-punc">&lt;</span><span class="tok-tag">meta</span> <span class="tok-attr">name</span>=<span class="tok-string">"description"</span> <span class="tok-attr">content</span>=<span class="tok-string">"Aprenda HTML5..."</span><span class="tok-punc">&gt;</span>
+<span class="tok-punc">&lt;</span><span class="tok-tag">meta</span> <span class="tok-attr">property</span>=<span class="tok-string">"og:title"</span> <span class="tok-attr">content</span>=<span class="tok-string">"HTML5 — Guia"</span><span class="tok-punc">&gt;</span>
+<span class="tok-punc">&lt;</span><span class="tok-tag">link</span> <span class="tok-attr">rel</span>=<span class="tok-string">"canonical"</span> <span class="tok-attr">href</span>=<span class="tok-string">"https://exemplo.dev/html5"</span><span class="tok-punc">&gt;</span></code></pre></div>
+        <div class="seo-checks reveal"><article><b>01</b><div><h3>Título único</h3><p>Descritivo, específico e claro.</p></div></article><article><b>02</b><div><h3>Hierarquia</h3><p>Um h1 e uma progressão lógica.</p></div></article><article><b>03</b><div><h3>Conteúdo útil</h3><p>URLs, imagens, links e dados com contexto.</p></div></article></div>
+      </div>
+    </section>
+
+    <section class="section practices" id="praticas">
+      <div class="section-heading reveal"><p class="section-index">13 / QUALIDADE</p><h2>Boas práticas,<br><span>menos atrito.</span></h2></div>
+      <div class="practice-grid">
+        <article class="reveal"><span class="practice-icon">↳</span><h3>Organização</h3><p>Use espaços iguais e mantenha HTML, CSS e JavaScript separados.</p></article>
+        <article class="reveal"><span class="practice-icon">⌁</span><h3>Significado</h3><p>Escolha a etiqueta pela função dela, não só pela aparência.</p></article>
+        <article class="reveal"><span class="practice-icon">◎</span><h3>Teste</h3><p>Confira o código e abra o site em navegadores diferentes.</p></article>
+        <article class="reveal"><span class="practice-icon">+</span><h3>Cuidado</h3><p>Confira se um recurso funciona antes de contar com ele.</p></article>
+      </div>
+    </section>
+
+    <section class="section practice-demo" id="pratica">
+      <div class="section-heading reveal"><p class="section-index">14 / DEMONSTRAÇÃO</p><h2>A página em <span>ação.</span></h2></div>
+      <div class="demo-shell reveal">
+        <div class="demo-toolbar"><div class="demo-tabs" role="tablist"><button class="active" id="codeTab" role="tab" aria-selected="true" type="button">Código</button><button id="previewTab" role="tab" aria-selected="false" type="button">Visualização</button></div><button class="copy-button" data-copy="completeCode" type="button">Copiar código</button></div>
+        <div class="demo-panes">
+          <pre id="completeCodePane"><code id="completeCode"><span class="tok-punc">&lt;</span><span class="tok-tag">header</span><span class="tok-punc">&gt;</span>
+  <span class="tok-punc">&lt;</span><span class="tok-tag">nav</span> <span class="tok-attr">aria-label</span>=<span class="tok-string">"Principal"</span><span class="tok-punc">&gt;</span>...<span class="tok-punc">&lt;/</span><span class="tok-tag">nav</span><span class="tok-punc">&gt;</span>
+<span class="tok-punc">&lt;/</span><span class="tok-tag">header</span><span class="tok-punc">&gt;</span>
+<span class="tok-punc">&lt;</span><span class="tok-tag">main</span><span class="tok-punc">&gt;</span>
+  <span class="tok-punc">&lt;</span><span class="tok-tag">article</span><span class="tok-punc">&gt;</span>
+    <span class="tok-punc">&lt;</span><span class="tok-tag">h1</span><span class="tok-punc">&gt;</span>Jornal da Web<span class="tok-punc">&lt;/</span><span class="tok-tag">h1</span><span class="tok-punc">&gt;</span>
+    <span class="tok-punc">&lt;</span><span class="tok-tag">p</span><span class="tok-punc">&gt;</span>Uma publicação feita com HTML semântico.<span class="tok-punc">&lt;/</span><span class="tok-tag">p</span><span class="tok-punc">&gt;</span>
+  <span class="tok-punc">&lt;/</span><span class="tok-tag">article</span><span class="tok-punc">&gt;</span>
+  <span class="tok-punc">&lt;</span><span class="tok-tag">aside</span><span class="tok-punc">&gt;</span>Conteúdo relacionado<span class="tok-punc">&lt;/</span><span class="tok-tag">aside</span><span class="tok-punc">&gt;</span>
+<span class="tok-punc">&lt;/</span><span class="tok-tag">main</span><span class="tok-punc">&gt;</span>
+<span class="tok-punc">&lt;</span><span class="tok-tag">footer</span><span class="tok-punc">&gt;</span>© 2026<span class="tok-punc">&lt;/</span><span class="tok-tag">footer</span><span class="tok-punc">&gt;</span></code></pre>
+          <article class="demo-preview" id="demoPreview" hidden>
+            <header><strong>Jornal da Web</strong><nav aria-label="Exemplo"><a href="#pratica">Início</a><a href="#semantica">Artigos</a></nav></header>
+            <main><article><p>TECNOLOGIA / HTML</p><h3>Construir a Web com significado</h3><p>HTML define estrutura e contexto para interfaces acessíveis e duráveis.</p></article><aside><b>Na edição</b><span>Semântica</span><span>APIs</span><span>Acessibilidade</span></aside></main>
+            <footer>© 2026 · Exemplo educacional</footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quiz" id="quiz">
+      <div class="section-heading reveal"><p class="section-index">15 / TESTE</p><h2>Quanto você sabe sobre <span>HTML?</span></h2></div>
+      <div class="quiz-shell reveal">
+        <div class="quiz-progress"><span id="quizProgressLabel">Pergunta 1 de 10</span><div><i id="quizProgress"></i></div></div>
+        <div id="quizQuestion"></div>
+        <div class="quiz-result" id="quizResult" hidden><span id="quizScore">0/10</span><h3 id="quizResultTitle">Bom começo</h3><p id="quizResultText"></p><button class="button button-primary" id="quizReset" type="button">Refazer teste <span>↻</span></button></div>
+      </div>
+    </section>
+
+    <section class="section glossary" id="glossario">
+      <div class="section-heading reveal"><p class="section-index">16 / GLOSSÁRIO</p><h2>Termos essenciais.</h2></div>
+      <div class="glossary-grid" id="glossaryGrid"></div>
+    </section>
+
+    <section class="conclusion" id="conclusao">
+      <div class="conclusion-orbit" aria-hidden="true"></div>
+      <div class="conclusion-ripple ripple-one" aria-hidden="true"></div>
+      <div class="conclusion-ripple ripple-two" aria-hidden="true"></div>
+      <div class="conclusion-stars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="conclusion-content reveal">
+        <p class="section-index">17 / RESUMO FINAL</p>
+        <h2>Você conhece<br><span>como a Web é construída.</span></h2>
+        <p class="conclusion-lede">O HTML organiza tudo o que aparece em uma página. Na prática, ele trabalha com três ideias principais:</p>
+
+        <div class="summary-flow" aria-label="Resumo dos principais aprendizados">
+          <article><span class="summary-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 4v7M8 11h16M8 11v7m16-7v7M8 18H5v9h6v-9H8Zm16 0h-3v9h6v-9h-3ZM16 11v7h-3v9h6v-9h-3Z"/></svg></span><div><h3>Estrutura</h3><p>Tags separam títulos, textos, links, imagens e regiões importantes.</p></div></article>
+          <article><span class="summary-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3 27 9v14l-11 6L5 23V9l11-6Z"/><path d="m11 16 3 3 7-7"/></svg></span><div><h3>Significado</h3><p>HTML semântico explica o papel de cada parte para pessoas e navegadores.</p></div></article>
+          <article><span class="summary-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="7" cy="16" r="3"/><circle cx="25" cy="7" r="3"/><circle cx="25" cy="25" r="3"/><path d="m10 15 12-7M10 17l12 7"/></svg></span><div><h3>Conexão</h3><p>Com CSS e JavaScript, o HTML ganha aparência, animações e interações.</p></div></article>
+        </div>
+
+        <section class="examples-section" aria-labelledby="examplesTitle">
+          <div class="examples-heading">
+            <p class="section-index">EXEMPLOS NA PRÁTICA</p>
+            <h3 id="examplesTitle">Onde você encontra isso?</h3>
+            <p>O HTML está em sites que usamos todos os dias. Veja três exemplos.</p>
+          </div>
+          <div class="example-grid">
+            <article class="example-card">
+              <div class="example-art">
+                <svg viewBox="0 0 240 150" role="img" aria-label="Ilustração de um site adaptado para celular">
+                  <rect x="69" y="9" width="102" height="132" rx="14" fill="#393044"/>
+                  <rect x="75" y="20" width="90" height="111" rx="8" fill="#f4f1e9"/>
+                  <rect x="83" y="31" width="74" height="15" rx="5" fill="#dce8df"/>
+                  <circle cx="91" cy="38.5" r="3" fill="#ed8b70"/>
+                  <rect x="84" y="54" width="44" height="4" rx="2" fill="#43534d"/>
+                  <rect x="84" y="63" width="62" height="3" rx="1.5" fill="#b3c0b8"/>
+                  <rect x="84" y="70" width="52" height="3" rx="1.5" fill="#b3c0b8"/>
+                  <rect x="84" y="82" width="70" height="25" rx="6" fill="#b7a4d8"/>
+                  <path d="m93 94 5 5 9-11" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="110" y="92" width="35" height="4" rx="2" fill="#fff" opacity=".8"/>
+                  <circle cx="120" cy="136" r="2" fill="#a5b2ab"/>
+                  <circle cx="184" cy="40" r="16" fill="#e78362" opacity=".18"/>
+                  <path d="M179 40h10m-5-5v10" stroke="#e78362" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <span class="example-label">NO BRASIL</span>
+              <h4>Serviços públicos no celular</h4>
+              <p>Um formulário de matrícula ou agendamento pode se adaptar à tela pequena. HTML organiza os campos; CSS ajuda a página a caber no celular.</p>
+            </article>
+            <article class="example-card">
+              <div class="example-art">
+                <svg viewBox="0 0 240 150" role="img" aria-label="Ilustração de página acessível com texto e leitor de tela">
+                  <rect x="37" y="22" width="128" height="100" rx="10" fill="#393044"/>
+                  <rect x="45" y="31" width="112" height="81" rx="5" fill="#f4f1e9"/>
+                  <rect x="54" y="41" width="54" height="7" rx="3.5" fill="#557b70"/>
+                  <rect x="54" y="56" width="92" height="3" rx="1.5" fill="#a6b3ab"/>
+                  <rect x="54" y="64" width="82" height="3" rx="1.5" fill="#a6b3ab"/>
+                  <rect x="54" y="72" width="89" height="3" rx="1.5" fill="#a6b3ab"/>
+                  <rect x="54" y="84" width="46" height="16" rx="5" fill="#ed8b70"/>
+                  <path d="M101 122h24m-12 0v9m-17 0h34" stroke="#393044" stroke-width="4" stroke-linecap="round"/>
+                  <circle cx="184" cy="70" r="22" fill="#b7a4d8" opacity=".18"/>
+                  <path d="M172 70c6-11 18-11 24 0-6 11-18 11-24 0Z" fill="none" stroke="#b7a4d8" stroke-width="2"/>
+                  <circle cx="184" cy="70" r="4" fill="#b7a4d8"/>
+                  <path d="M176 101c5 5 11 5 16 0m-20 6c8 8 16 8 24 0" fill="none" stroke="#ed8b70" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <span class="example-label">NO BRASIL E NO MUNDO</span>
+              <h4>Página que mais pessoas conseguem usar</h4>
+              <p>Títulos bem organizados, textos alternativos e botões claros ajudam leitores de tela e quem navega pelo teclado.</p>
+            </article>
+            <article class="example-card">
+              <div class="example-art">
+                <svg viewBox="0 0 240 150" role="img" aria-label="Ilustração de uma aula em vídeo dentro de uma página">
+                  <rect x="36" y="24" width="168" height="103" rx="12" fill="#393044"/>
+                  <rect x="45" y="33" width="150" height="85" rx="7" fill="#314e49"/>
+                  <circle cx="120" cy="70" r="22" fill="#e78362"/>
+                  <path d="m115 59 17 11-17 11z" fill="#fff"/>
+                  <rect x="58" y="97" width="124" height="4" rx="2" fill="#f3f0e8" opacity=".35"/>
+                  <rect x="58" y="97" width="72" height="4" rx="2" fill="#e78362"/>
+                  <rect x="58" y="106" width="30" height="3" rx="1.5" fill="#f3f0e8" opacity=".55"/>
+                  <rect x="151" y="106" width="31" height="3" rx="1.5" fill="#f3f0e8" opacity=".55"/>
+                  <circle cx="190" cy="31" r="14" fill="#e78362" opacity=".2"/>
+                  <path d="M184 31h12m-6-6v12" stroke="#e78362" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <span class="example-label">NO MUNDO</span>
+              <h4>Aulas, vídeos e músicas</h4>
+              <p>Etiquetas como <code>&lt;video&gt;</code> e <code>&lt;audio&gt;</code> colocam mídia na página. Legendas podem ajudar quem não ouve o áudio.</p>
+            </article>
+          </div>
+        </section>
+
+        <div class="impact-grid">
+          <article class="impact-card positive impact-brazil">
+            <div class="impact-heading"><span>BRASIL</span><b>Impactos positivos</b></div>
+            <ul>
+              <li>Facilita o ensino de programação em escolas e cursos gratuitos.</li>
+              <li>Ajuda empresas brasileiras a criar sites acessíveis e responsivos.</li>
+              <li>Permite criar serviços públicos digitais que funcionam em celulares.</li>
+              <li>Reduz custos: HTML, CSS e navegadores modernos têm acesso gratuito.</li>
+            </ul>
+          </article>
+          <article class="impact-card negative impact-brazil">
+            <div class="impact-heading"><span>BRASIL</span><b>Desafios negativos</b></div>
+            <ul>
+              <li>Má conexão pode atrasar páginas grandes com muitos recursos.</li>
+              <li>Conteúdo mal organizado dificulta o uso por pessoas com deficiência.</li>
+              <li>Profissionais podem usar tags antigas ou código ruim sem validação.</li>
+              <li>Dados coletados por sites precisam ser protegidos pela LGPD.</li>
+            </ul>
+          </article>
+          <article class="impact-card positive impact-world">
+            <div class="impact-heading"><span>MUNDO</span><b>Impactos positivos</b></div>
+            <ul>
+              <li>Padroniza sites para muitos dispositivos e idiomas.</li>
+              <li>Permite aplicações como educação, comércio e comunicação pública.</li>
+              <li>Vídeo, áudio, gráficos e formulários existem sem plugins antigos.</li>
+              <li>Promove mais inclusão quando é usado com semântica e acessibilidade.</li>
+            </ul>
+          </article>
+          <article class="impact-card negative impact-world">
+            <div class="impact-heading"><span>MUNDO</span><b>Desafios negativos</b></div>
+            <ul>
+              <li>Sites podem ampliar desigualdade entre pessoas com pouco acesso à internet.</li>
+              <li>Recursos modernos nem sempre funcionam em aparelhos antigos.</li>
+              <li>HTML mal usado pode revelar informações ou facilitar rastreamento.</li>
+              <li>Acesso fácil também permite desinformação e páginas fraudulentas.</li>
+            </ul>
+          </article>
+        </div>
+
+        <section class="sources-section" aria-labelledby="sourcesTitle">
+          <div>
+            <p class="section-index">PARA SABER MAIS</p>
+            <h3 id="sourcesTitle">Fontes confiáveis</h3>
+            <p>Materiais oficiais usados como referência para os exemplos e impactos.</p>
+          </div>
+          <ul class="source-list">
+            <li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noreferrer"><span>PADRÃO OFICIAL</span><strong>WHATWG — padrão HTML atual</strong><i>↗</i></a></li>
+            <li><a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/" target="_blank" rel="noreferrer"><span>ACESSIBILIDADE</span><strong>W3C WAI — introdução à acessibilidade na Web</strong><i>↗</i></a></li>
+            <li><a href="https://emag.governoeletronico.gov.br/" target="_blank" rel="noreferrer"><span>GOVERNO BRASILEIRO</span><strong>eMAG — acessibilidade digital no governo</strong><i>↗</i></a></li>
+            <li><a href="https://www.cgi.br/publicacao/pesquisa-sobre-o-uso-das-tecnologias-de-informacao-e-comunicacao-nos-domicilios-brasileiros-tic-domicilios-2024/" target="_blank" rel="noreferrer"><span>DADOS DO BRASIL</span><strong>Cetic.br / NIC.br — TIC Domicílios 2024</strong><i>↗</i></a></li>
+          </ul>
+        </section>
+
+        <p class="conclusion-message"><b>Ideia central:</b> o HTML5 oferece mais possibilidades, mas precisa ser usado com organização, responsabilidade e acessibilidade.</p>
+        <a class="button button-primary" href="#inicio">Voltar ao topo <span>↑</span></a>
+      </div>
+    </section>
+  </main>
+
+  <div class="topic-modal" id="topicModal" role="dialog" aria-modal="true" aria-labelledby="topicModalTitle" hidden>
+    <div class="topic-modal-backdrop" data-close-modal></div>
+    <article class="topic-modal-panel">
+      <div class="topic-modal-top">
+        <span class="topic-modal-index" id="topicModalIndex">EXPLICAÇÃO PROFUNDA</span>
+        <button type="button" id="topicModalClose" aria-label="Fechar explicação">×</button>
+      </div>
+      <div class="topic-modal-body">
+        <h2 id="topicModalTitle"></h2>
+        <p class="topic-modal-summary" id="topicModalSummary"></p>
+        <div class="topic-modal-example" id="topicModalExample"></div>
+        <div class="topic-modal-details" id="topicModalDetails"></div>
+      </div>
+      <div class="topic-modal-footer"><span>HTML5 / ESTUDO INTERATIVO</span><button type="button" class="button button-secondary" data-close-modal>Entendi <span>→</span></button></div>
+    </article>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-brand"><span class="brand-mark">5</span><div><strong>HTML5 — O Guia Definitivo</strong><p>Uma leitura editorial sobre a linguagem que estrutura a Web.</p></div></div>
+    <nav aria-label="Navegação do rodapé"><a href="#fundamentos">Fundamentos</a><a href="#referencia">Referência</a><a href="#pratica">Na prática</a><a href="#quiz">Quiz</a></nav>
+    <div class="footer-links"><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank" rel="noreferrer">MDN Web Docs ↗</a><a href="https://html.spec.whatwg.org/" target="_blank" rel="noreferrer">WHATWG Living Standard ↗</a></div>
+    <p class="footer-note">Material educacional · Conteúdo em português brasileiro</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
